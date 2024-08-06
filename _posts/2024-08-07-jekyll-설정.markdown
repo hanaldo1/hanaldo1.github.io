@@ -1,0 +1,112 @@
+---
+layout: post
+title: Jekyll 다시 설정하기
+date: 2024-08-07 01:01:00 +0900
+category: jekyll
+---
+
+개인 블로그 만들겠다고 Github Pages 와 Jekyll 를 통해 초기 설정을 했었으나,, 그 뒤로 1년을 방치해두고는 잊혀져만 갔다.   
+
+다시 개인 블로그를 살리는 김에 티스토리와 고민하다가 기존에 세팅 해두었던 Jekyll 를 이용해보기로 했다.<br><br>
+
+해당 글은 깃헙에 푸시하기 전 로컬에서 확인이 가능하도록, 로컬 컴퓨터에 Jekyll 를 설정하는 과정을 정리했다.
+
+> 초반 Jekyll 설정 과정은... 이전에 기록 해두었던 자료가 남아 있다면 이후 추가해 볼 예정이다
+
+
+
+##  1. Rbenv 설치
+
+```shell
+$ brew update
+$ brew install rbenv ruby-build
+```
+
+## 2. ruby 버전 설치
+
+```shell
+$ rbenv install -l # 설치 가능한 ruby 버전 확인
+$ rbenv install 3.2.5
+$ rbenv global 3.3.4 # 새 버전 활성화
+
+$ rbenv versions # 현재 사용 중인 ruby 버전 확인
+-- system
+-- * 3.2.5 (set by /Users/hanjiu/.rbenv/version)
+```
+
+> 쉘 설정 파일에 아래 내용 추가
+>
+> ```
+> [[ -d ~/.rbenv  ]] && \
+>   export PATH=${HOME}/.rbenv/bin:${PATH} && \
+>   eval "$(rbenv init -)"
+> ```
+
+## 3. Bundler 설치 및 Jekyll 서버 실행
+
+```shell
+$ gem install bundler
+$ cd <github pages 레포 폴더>
+$ bundle install
+
+$ bundle exec jekyll serve
+Configuration file: /Users/hanjiu/study/hanaldo1.github.io/_config.yml
+            Source: /Users/hanjiu/study/hanaldo1.github.io
+       Destination: /Users/hanjiu/study/hanaldo1.github.io/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+       Jekyll Feed: Generating feed for posts
+                    done in 0.054 seconds.
+ Auto-regeneration: enabled for '/Users/hanjiu/study/hanaldo1.github.io'
+    Server address: http://127.0.0.1:4000//
+ ...
+```
+
+: `http://127.0.0.1:4000/` 로 접근하여 확인 가능
+
+<hr/>
+
+## 설정 중 발생 에러
+
+### bundle install 시
+
+기존 Gemfile.lock 제거 후 재실행 
+
+```shell
+Bundler 2.5.17 is running, but your lockfile was generated with 1.17.2. Installing Bundler 1.17.2 and restarting using that version.
+  Fetching gem metadata from https://rubygems.org/.
+  Fetching bundler 1.17.2
+  Installing bundler 1.17.2
+  /Users/hanjiu/.rbenv/versions/3.3.4/lib/ruby/gems/3.3.0/gems/bundler-1.17.2/lib/bundler/shared_helpers.rb:272:in `search_up': undefined method `untaint' for an instance of String (NoMethodError)
+        current  = File.expand_path(SharedHelpers.pwd).untaint
+                                                      ^^^^^^^^
+   ...
+```
+
+### bundle exec 시
+
+ruby 버전 3.3.4 에서 3.2.5 로 다운그레이드 ㅇ 후, bundle install 및 exec
+
+```shell
+/Users/hanjiu/.rbenv/versions/3.3.4/lib/ruby/gems/3.3.0/gems/jekyll-4.0.1/lib/jekyll.rb:28: warning: csv was loaded from the standard library, but will no longer be part of the default gems since Ruby 3.4.0. 
+Add csv to your Gemfile or gemspec. Also contact author of jekyll-4.0.1 to add csv into its gemspec.
+
+/Users/hanjiu/.rbenv/versions/3.3.4/lib/ruby/gems/3.3.0/gems/safe_yaml-1.0.5/lib/safe_yaml/transform.rb:1: warning: base64 was loaded from the standard library, but will no longer be part of the default gems since Ruby 3.4.0. Add base64 to your Gemfile or gemspec. 
+Also contact author of safe_yaml-1.0.5 to add base64 into its gemspec.
+
+/Users/hanjiu/.rbenv/versions/3.3.4/lib/ruby/gems/3.3.0/gems/liquid-4.0.4/lib/liquid/standardfilters.rb:2: warning: bigdecimal was loaded from the standard library, but will no longer be part of the default gems since Ruby 3.4.0. Add bigdecimal to your Gemfile or gemspec.
+Also contact author of liquid-4.0.4 to add bigdecimal into its gemspec.
+
+jekyll 4.0.1 | Error:  undefined method `[]' for nil
+/Users/hanjiu/.rbenv/versions/3.3.4/lib/ruby/3.3.0/logger.rb:384:in `level': undefined method `[]' for nil (NoMethodError)
+
+    @level_override[Fiber.current] || @level
+                   ^^^^^^^^^^^^^^^
+...
+```
+
+<hr/>
+
+### 참고
+
+- [https://jojoldu.tistory.com/288](https://jojoldu.tistory.com/288)
