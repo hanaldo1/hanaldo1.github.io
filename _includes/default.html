@@ -2,7 +2,10 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {%- include head.html -%}
   <style>@import url(/public/css/syntax/{{ site.highlighter-theme }}.css);</style>
-  <title>{{ site.title }}</title>
+  {%- assign date_format = site.date_forma | default: "%Y/%m/%d" -%}
+  {%- assign page_date = page.date | date: date_format -%}
+  {%- assign page_title = page.title | date: site.title -%}
+  <title>{{ page_title | append: ' - ' | append: page_date }}</title>
   <!-- <link href="/public/css/bootstrap.min.css" rel="stylesheet"> -->
 
   <link href="/public/css/style.css" rel="stylesheet">
