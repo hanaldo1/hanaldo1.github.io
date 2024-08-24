@@ -18,6 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+timezone: Asia/Seoul
 locale: "ko-KR"
 title: Hanaldo
 email: jiw021538@gmail.com
@@ -34,6 +35,8 @@ highlighter-theme: monokai
 date_format: "%Y-%M-%D"
 plugins:
   - jekyll-feed
+  - jekyll-gist
+
 category_dir: category/
 tag_dir: tag/
 
