@@ -326,6 +326,20 @@ figure {
 	text-align: center;
 }
 
+.svg-icon {
+	width: 30px;
+	height: 30px;
+	
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(63deg) brightness(114%) contrast(103%);
+}
+
+.social-media-item {
+	width: 30px;
+	height: 30px;
+	margin: 5px;
+	float: left;
+}
+
 @media (max-width: 576px) {
 	article {
 		font-size: 0.9em;
