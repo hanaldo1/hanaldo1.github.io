@@ -2,7 +2,7 @@
 layout: post
 title: 댓글 기능 추가해보기
 date: 2024-08-09 00:10:00 +0900
-category: jekyll
+categories: [Jekyll]
 ---
 
 1차적으로 Jekyll 설정이 완료 되었으니 (단순히 따라한 것에 불과하여 차차 필요한 기능들이 있다면 수정/추가해 나갈 예정이다...😅) <br/>

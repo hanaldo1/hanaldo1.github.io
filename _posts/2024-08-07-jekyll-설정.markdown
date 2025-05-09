@@ -2,7 +2,7 @@
 layout: post
 title: Jekyll 설정하기
 date: 2024-08-07 01:01:00 +0900
-category: jekyll
+categories: [Jekyll]
 ---
 
 > ### 2025-05-10 업데이트 사항
