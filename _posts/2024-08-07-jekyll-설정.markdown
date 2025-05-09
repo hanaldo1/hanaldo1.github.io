@@ -1,0 +1,75 @@
+---
+layout: post
+title: Jekyll 설정하기
+date: 2024-08-07 01:01:00 +0900
+category: jekyll
+---
+
+> ### 2025-05-10 업데이트 사항
+> : minima 테마를 사용하기 위해, brew 로 설치했던 방식에서 asdf 로 새로 ruby 를 설치하여 세팅을 진행함.
+
+개인 블로그 만들겠다고 Github Pages 와 Jekyll 를 통해 초기 설정을 했었으나,, 그 뒤로 1년을 방치해두고는 잊혀져만 갔다.   
+
+다시 개인 블로그를 살리는 김에 티스토리와 고민하다가 기존에 세팅 해두었던 Jekyll 를 이용해보기로 했다.<br><br>
+
+##  1. Ruby 설치 (asdf 사용)
+
+```shell
+$ asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+
+$ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3) --with-libyaml-dir=$(brew --prefix libyaml)"
+
+$ asdf install ruby <버전>
+
+$ asdf plugin update ruby
+```
+
+만약, `psych: Could not be configured. It will not be installed.` 와 같은 에러가 발생한다면 아래와 같이 libyaml 을 설치
+
+
+```shell
+$ brew install libyaml
+```
+
+## 2. Bundler 및 Jekyll 설치
+
+```shell
+$ gem install bundler jekyll
+```
+
+## 3. 새 Jekyll 사이트 생성
+```shell
+$ cd <github pages 레포 폴더>
+$ jekyll new . --skip-bundle
+```
+
+## 4. Gemfile 확인 및 minima 테마 사용 설정
+1. Gemfile 안에 아래와 같이 추가되어있는지 확인
+
+   ````ruby
+   gem "minima", "~> 2.5"
+   ````
+
+2. _config.yml 에도 minima 설정이 되어있는지 확인
+
+   ```yaml
+   theme: minima
+   ```
+
+## 5. 의존성 설치 및 로컬 서버 실행
+
+```shell
+$ bundle install
+
+$ bundle exec jekyll serve
+```
+
+아래와 같이 로그가 출력되면, 로그에 명시된 주소로 들어가서 사이트 확인이 가능하다.
+
+```shell
+ Auto-regeneration: enabled for '/Users/hanjiu/study/hanaldo1.github.io'
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+```
+
+<hr/>
