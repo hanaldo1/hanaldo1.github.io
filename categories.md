@@ -8,7 +8,7 @@ permalink: /categories/
 <ul>
   {% assign categories = site.posts | map: "categories" | join: "," | split: "," | uniq | sort %}
   {% for category in categories %}
-    {% if category != "" %}
+    {% if category != "" and category != "blog" %}
       <li><a href="/categories/{{ category | downcase | slugify }}/">{{ category }}</a></li>
     {% endif %}
   {% endfor %}
