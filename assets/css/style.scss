@@ -34,6 +34,10 @@ code {
   border-radius: 4px;
 }
 
+code.highlighter-rouge {
+  color: #e39042;
+}
+
 pre, code {
   font-family: 'Fira Code', monospace; /* Fira Code 폰트 사용 */
 }
@@ -45,4 +49,74 @@ pre code a {
 
 pre code a:hover {
   text-decoration: underline; /* 마우스 올리면 밑줄 */
+}
+
+/* 토클 */
+.toggle-container input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-label {
+  display: block;
+  font-weight: bold;
+  margin: 1em 0 0.5em;
+  cursor: pointer;
+}
+
+.toggle-label:hover {
+  background-color: #f0f0f0; /* 마우스 올렸을 때 배경 */
+  transition: background-color 0.2s ease;
+  border-radius: 4px;
+}
+
+.toggle-container .toggle-content {
+  margin-left: 1.5em;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.toggle-container input:checked ~ .toggle-content {
+  max-height: 10000px;
+}
+
+// 이미지 캡션
+figcaption {
+  text-align: center;
+  font-weight: bold;
+  color: #646464;
+}
+
+/* 테이블 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.6rem;
+}
+
+thead {
+  background-color: #f0f0f0;
+}
+
+/* 기본 css 수정 */
+
+.post-content h1 { font-size: 2em; font-weight: bold; }
+.post-content h2 { font-size: 1.75em; font-weight: bold; }
+.post-content h3 { font-size: 1.5em; font-weight: bold; }
+.post-content h4 { font-size: 1.25em; font-weight: bold; }
+.post-content h5 { font-size: 1em; font-weight: bold; }
+.post-content h6 { font-size: 0.875em; font-weight: bold; }
+
+blockquote {
+  font-style: normal; /* 기본 기울임 제거 */
+  border-left: 4px solid #ccc;
+  padding-left: 1rem;
+  color: #646464;
+  margin: 1em 0;
+  font-size: medium;
 }

@@ -1,5 +1,5 @@
 ---
 layout: category
-category: Jekyll
+category: jekyll
 permalink: /categories/jekyll/
 ---
