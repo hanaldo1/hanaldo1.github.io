@@ -1,0 +1,9 @@
+<div class="toggle-container">
+  <input type="checkbox" id="toggle-{{ include.id | default: include.title | slugify }}" />
+  <label for="toggle-{{ include.id | default: include.title | slugify }}" class="toggle-label">
+    {{ include.title }}
+  </label>
+  <div class="toggle-content">
+    {{ include.content }}
+  </div>
+</div>
