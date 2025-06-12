@@ -20,6 +20,6 @@ layout: default
   <span>Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
 
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}">&laquo; 이전</a>
+    <a href="{{ paginator.next_page_path | relative_url }}">다음 &raquo;</a>
   {% endif %}
 </div>
