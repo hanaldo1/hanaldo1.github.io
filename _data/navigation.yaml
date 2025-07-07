@@ -1,8 +1,6 @@
-- title: About
-  url: /about/
 - title: Category
   url: /categories/
-# - title: Blog
-#   url: /blog/
-# - title: Conference
-#   url: /conference/
+- title: Blog
+  url: /blog/
+- title: Conference
+  url: /conference/
