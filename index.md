@@ -125,9 +125,10 @@ function moveSlide(step) {
 
 |  기간  |  자격증   | 상태 |
 |-----|-----|-----|-----|
-|  ~ 25.07.06 |  JLPT N2  | 시험 응시 완료 | 
-|  ~ 25년도 3분기  |  Terraform Associate  | 시험 접수 전 |
-|  ~ 25년도 4분기  |  Certified Kubernetes Administrator  | 시험 접수 전 |
+|  ~ 25년도 3분기  |  JLPT N2  | 취득 완료 (2025.08.12) | 
+|  ~ 25년도 3분기  |  Terraform Associate  | 취득 완료 (2025.09.23) |
+|  ~ 26년도 2분기  |  Certified Kubernetes Administrator (CKA) | 시험 결제 완료 (2026.01.19) |
+|  ~ 26년도       |  JLPT N1  |  시험 접수 대기 중  |
 
 <br/>
 
