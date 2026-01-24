@@ -1,0 +1,19 @@
+/* =========================
+   테이블 커스텀 스타일
+   ========================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 13.5px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.6rem;
+}
+
+thead {
+  background-color: #f0f0f0;
+}

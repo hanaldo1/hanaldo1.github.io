@@ -1,0 +1,19 @@
+/* =========================
+   이미지 커스텀 스타일
+   ========================= */
+
+img.framed {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  max-width: 100%;
+}
+
+// 이미지 캡션
+figcaption {
+  text-align: center;
+  font-weight: bold;
+  color: #646464;
+}
