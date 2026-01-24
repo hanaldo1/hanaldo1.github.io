@@ -1,0 +1,98 @@
+/* =========================
+   FullCalendar 커스텀 스타일
+   ========================= */
+
+/* 전체 폰트/톤 */
+.plan-calendar {
+  .fc {
+    --fc-border-color: var(--line);
+    --fc-page-bg-color: var(--bg);
+    --fc-today-bg-color: rgba(17,17,17,0.04); // 오늘 연한 하이라이트(모노톤)
+    color: var(--text);
+  }
+
+  /* 상단 타이틀(예: January 2026) */
+  .fc .fc-toolbar-title {
+    font-size: 44px;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+  }
+
+  /* 버튼 모노톤 */
+  .fc .fc-button {
+    background: #111827;
+    border: 1px solid #111827;
+    border-radius: 10px;
+    padding: 10px 14px;
+    box-shadow: none;
+  }
+
+  .fc .fc-button:disabled {
+    opacity: 0.5;
+  }
+
+  .fc .fc-button-primary:not(:disabled):hover {
+    background: #0b1220;
+    border-color: #0b1220;
+  }
+
+  /* today 버튼만 밝게(선택) */
+  .fc .fc-today-button {
+    background: #6b7280;
+    border-color: #6b7280;
+  }
+
+  /* 요일 헤더(파란 텍스트 제거) */
+  .fc .fc-col-header-cell-cushion {
+    color: var(--muted);
+    font-weight: 600;
+    text-decoration: none; // 링크 스타일 제거
+  }
+
+  /* 날짜 숫자(파란 링크 제거) */
+  .fc .fc-daygrid-day-number {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  /* 이벤트(기본 파란색 제거) */
+  .fc .fc-event {
+    background: #111827;
+    border: 1px solid #111827;
+    border-radius: 10px;
+    padding: 2px 6px;
+  }
+
+  .fc .fc-event .fc-event-title {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* 선택된/hover 시 너무 튀지 않게 */
+  .fc .fc-daygrid-day:hover {
+    background: rgba(17,17,17,0.03);
+  }
+
+  /* 이벤트 박스 자체 */
+  .fc .fc-daygrid-event {
+    white-space: normal;        // 줄바꿈 허용
+    align-items: flex-start;    // 위에서부터 쌓이게
+  }
+
+  /* 타이틀 텍스트 */
+  .fc .fc-event-title {
+    white-space: normal;
+    word-break: break-word;     // 긴 단어도 줄바꿈
+    line-height: 1.3;
+  }
+
+  /* 오늘 셀 커스텀 */
+  .fc .fc-day-today {
+    background: rgba(17, 17, 17, 0.03);
+    text-decoration: underline; // 링크 밑줄 제거
+  }
+
+  .fc .fc-day-today .fc-daygrid-day-number {
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,633 @@
+title: "CKA 강의 수강 계획"
+start_date: "2026-01-23"
+days: 67
+summaries:
+  - text: Udemy CKA 강의 수강
+    link: https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/
+  - text: 하루 20분 ~ 1시간씩
+
+items:
+  - date: "2026-01-23"
+    title: Core Concepts
+    duration: 24분 0초
+    detail:
+      - cluster architecture
+      - docker vs containerd
+      - a note on docker deprecation
+    status: done
+
+  - date: "2026-01-24"
+    title: Core Concepts
+    duration: 11분 13초
+    detail:
+      - etcd for beginner
+      - etcd in kubernetes
+      - etcd dcommands
+
+  - date: "2026-01-25"
+    title: Core Concepts
+    duration: 18분 4초
+    detail:
+      - kube api serer
+      - kube controller manager
+      - kube scheduler
+      - kubelet
+      - kube proxy
+
+  - date: "2026-01-26"
+    title: Core Concepts
+    duration: 22분 4초
+    detail:
+      - pods
+      - pods with yaml
+      - demo - pods with yaml
+
+  - date: "2026-01-27"
+    title: Core Concepts
+    duration: 19분 32초
+    detail:
+      - practice test introduction
+      - demo accessing labs
+      - lab - pods
+      - lab solution - pods
+
+  - date: "2026-01-28"
+    title: Core Concepts
+    duration: 29분 56초
+    detail:
+      - recap replicasets
+      - lab -replicasets
+      - lab solution - replicasets
+
+  - date: "2026-01-29"
+    title: Core Concepts
+    duration: 13분 0초
+    detail:
+      - deployments
+      - certificatio ntip
+      - course setup - accessing th labs
+      - lab - deployments
+      - lab solution
+
+  - date: "2026-01-30"
+    title: Core Concepts
+    duration: 30분 33초
+    detail:
+      - services
+      - services cluster ip
+      - services loadbalancer
+      - lab services
+      - lab solution
+
+  - date: "2026-01-31"
+    title: Core Concepts
+    duration: 14분 28초
+    detail:
+      - namespaces
+      - lab - namespaces
+      - lab solution
+
+  - date: "2026-02-01"
+    title: Core Concepts
+    duration: 36분 0초
+    detail:
+      - imperative vs declarative
+      - certificatio tips
+      - kubectl explain command
+      - lab
+      - lab solution
+      - kubectl apply command
+      - quick reminder
+      - reference notes
+
+  - date: "2026-02-02"
+    title: Scheduling
+    duration: 21분 32초
+    detail:
+      - introduction
+      - manual scheduling
+      - lab
+      - lab solution
+      - labels and selector
+      - lab
+      - lab solution
+
+  - date: "2026-02-03"
+    title: Scheduling
+    duration: 19분 50초
+    detail:
+      - taint and tolerations
+      - lab
+      - lab solution
+
+  - date: "2026-02-04"
+    title: Scheduling
+    duration: 22분 32초
+    detail:
+      - node selectors
+      - node affinity
+      - lab
+      - lab solution
+      - taints and tolerations vs node affitnity
+
+  - date: "2026-02-05"
+    title: Scheduling
+    duration: 21분 21초
+    detail:
+      - resource limits
+      - a quick note on editing pod and deployments
+      - lab
+      - lab solution
+
+  - date: "2026-02-06"
+    title: Scheduling
+    duration: 9분 50초
+    detail:
+      - daemonsets
+      - lab
+      - lab solution
+
+  - date: "2026-02-07"
+    title: Scheduling
+    duration: 23분 20초
+    detail:
+      - static pod
+      - lab
+      - lab solution
+
+  - date: "2026-02-08"
+    title: Scheduling
+    duration: 30분 48초
+    detail:
+      - priority classes
+      - lab
+      - multiple schedulers
+      - lab
+      - lab solution
+      - configuring scheduler profiles
+      - reference
+
+  - date: "2026-02-09"
+    title: Scheduling
+    duration: 32분 23초
+    detail:
+      - admission controller
+      - lab
+      - lab solution
+      - validating and mutating admission controller
+      - lab
+      - lab solution
+
+  - date: "2026-02-10"
+    title: Scheduling
+    duration: 14분 9초
+    detail:
+      - logging & monitoring (강의 수 적어서 해당 챕터는 한번에)
+
+  - date: "2026-02-11"
+    title: Application Lifecycle Management
+    duration: 16분 23초
+    detail:
+      - introduction
+      - rolling update and rollback
+      - lab
+      - lab solution
+
+  - date: "2026-02-12"
+    title: Application Lifecycle Management
+    duration: 29분 29초
+    detail:
+      - configure application
+      - commands and arguments in docker
+      - commands and arguments in kubernetes
+      - lab
+      - lab solution
+
+  - date: "2026-02-13"
+    title: Application Lifecycle Management
+    duration: 15분 16초
+    detail:
+      - configure env in application
+      - configure configmap in application
+      - lab
+      - lab solution
+
+  - date: "2026-02-14"
+    title: Application Lifecycle Management
+    duration: 35:29 (또는 demo 기준으로 나눠서 15:34, 19:55)
+    detail:
+      - secrets
+      - lab
+      - additional resource
+      - lab solution
+      - demo encrypting secret data at rest
+      - a note on secrets
+      - scale application?
+
+  - date: "2026-02-15"
+    title: Application Lifecycle Management
+    duration: 21분 16초
+    detail:
+      - multi container pods
+      - multi container pods design pattern
+      - lab
+      - init containers
+      - lab
+      - lab solution
+      - self healing application
+
+  - date: "2026-02-16"
+    title: Application Lifecycle Management
+    duration: 23분 44초
+    detail:
+      - autoscaling
+      - hpa
+      - lab - manual scaling
+      - lab - hpa
+      - in-place resize of pods
+      - vpa
+      - lab - install vpa
+      - lab - modifying cpu resources in vpa
+
+  - date: "2026-02-17"
+    title: Cluster Maintenance
+    duration: 18분 44초
+    detail:
+      - introduction
+      - os upgrades
+      - lab
+      - lab solution
+      - kubernetes releases
+      - reference
+
+  - date: "2026-02-18"
+    title: Cluster Maintenance
+    duration: 46분 51초
+    detail:
+      - cluster upgrade introduction
+      - demo
+      - lab
+      - lab solution
+
+  - date: "2026-02-19"
+    title: Cluster Maintenance
+    duration: 7분 47초
+    detail:
+      - backup and restore methods
+      - working with etcdctl and etcdutl
+      - lab
+      - certification exam tips
+      - reference
+
+  - date: "2026-02-20"
+    title: Security
+    duration: 11분 1초
+    detail:
+      - introduction
+      - kubernetes security primitives
+      - authentication
+      - article on setting up basic authentication
+
+  - date: "2026-02-21"
+    title: Security
+    duration: 40분 3초
+    detail:
+      - tls introduction
+      - tls basics
+      - tls in kubernetes
+      - tls in kubernetes - certificate creation
+
+  - date: "2026-02-22"
+    title: Security
+    duration: 26분 0초
+    detail:
+      - view certificate details
+      - lab
+      - lab solution
+
+  - date: "2026-02-23"
+    title: Security
+    duration: 13분 34초
+    detail:
+      - certificates api
+      - lab
+      - lab solution
+
+  - date: "2026-02-24"
+    title: Security
+    duration: 16분 45초
+    detail:
+      - kubeconfig
+      - lab
+      - lab solution
+      - (persistent key/value store)
+
+  - date: "2026-02-25"
+    title: Security
+    duration: 30분 59초
+    detail:
+      - api groups
+      - authorization
+      - rbac
+      - lab
+      - lab solution
+
+  - date: "2026-02-26"
+    title: Security
+    duration: 31분 23초
+    detail:
+      - cluster roles
+      - lab
+      - lab solution
+      - service accounts
+      - lab
+      - lab solution
+
+  - date: "2026-02-27"
+    title: Security
+    duration: 23분 52초
+    detail:
+      - image security
+      - lab
+      - lab solution
+      - pre-requisite security in docker
+      - security contexts
+      - lab
+      - lab solution
+
+  - date: "2026-02-28"
+    title: Security
+    duration: 33분 34초
+    detail:
+      - network policy
+      - developing network policies
+      - lab
+      - lab solution
+      - (kubectx and kubens - command line utilies)
+
+  - date: "2026-03-01"
+    title: Security
+    duration: 17분 57초
+    detail:
+      - crd
+      - lab
+      - custom controllers
+      - operator framework
+
+  - date: "2026-03-02"
+    title: Storage
+    duration: 19분 31초
+    detail:
+      - storage - section introduction
+      - docker storage - introduction
+      - storage in docker
+      - volume driver plugins in docker
+      - container storage interface
+
+  - date: "2026-03-03"
+    title: Storage
+    duration: 30분 58초
+    detail:
+      - volumes
+      - persistent volumes
+      - persistent volume claims
+      - using pvcs in pods
+      - lab
+      - lab solution
+      - (application configuration)
+      - (additional topics)
+
+  - date: "2026-03-04"
+    title: Storage
+    duration: 14분 29초
+    detail:
+      - storage class
+      - lab
+      - lab solution
+
+  - date: "2026-03-05"
+    title: Networking
+    duration: 30분 29초
+    detail:
+      - introduction
+      - prerequisite switching, routing, gateways cni in kubernetes
+      - prerequisite dns
+      - prerequisite coredns
+
+  - date: "2026-03-06"
+    title: Networking
+    duration: 28분 47초
+    detail:
+      - prerequisite network namespaces
+      - faq
+      - prerequisite docker networking
+      - prerequisite cni
+
+  - date: "2026-03-07"
+    title: Networking
+    duration: 20분 18초
+    detail:
+      - cluster networking
+      - important note
+      - lab
+      - lab solution
+      - pod networking
+
+  - date: "2026-03-08"
+    title: Networking
+    duration: 14분 9초
+    detail:
+      - cni in kubernetes
+      - note cni weave
+      - cni weave
+      - lab
+      - lab solution
+      - ipam weave
+      - lab
+
+  - date: "2026-03-09"
+    title: Networking
+    duration: 14분 0초
+    detail:
+      - service networking
+      - lab
+      - lab solution
+
+  - date: "2026-03-10"
+    title: Networking
+    duration: 28분 13초
+    detail:
+      - dns in kubernetes
+      - coredns in kubernetes
+      - lab
+      - lab solution
+
+  - date: "2026-03-11"
+    title: Networking
+    duration: 49분 37초
+    detail:
+      - ingress
+      - article
+      - ingress - annotations and rewrite target
+      - lab
+      - lab solution
+      - lab
+      - lab solution
+
+  - date: "2026-03-12"
+    title: Networking
+    duration: 15분 28초
+    detail:
+      - gateway api intro
+      - practical guide
+      - lab
+
+  - date: "2026-03-13"
+    title: Design and Install a Kubernetes Cluster
+    duration: 31분 37초
+    detail:
+      - design a kubernetes cluster
+      - choosing kubernetes infrastructure
+      - configure high availability
+      - etcd in ha
+
+  - date: "2026-03-14"
+    title: Install Kubernetes the Kubeadm way
+    duration: 44분 6초
+    detail:
+      - intro
+      - resources
+      - deployment with kubeadm
+      - demo
+      - lab
+      - lab solution
+
+  - date: "2026-03-15"
+    title: Helm Basics
+    duration: 16분 8초
+    detail:
+      - intro
+      - installation and configuration
+      - lab
+      - quick note on helm2 vs helm3
+
+  - date: "2026-03-16"
+    title: Helm Basics
+    duration: 21분 26초
+    detail:
+      - helm components
+      - helm charts
+      - working with helm - basics
+
+  - date: "2026-03-17"
+    title: Helm Basics
+    duration: 11분 58초
+    detail:
+      - customizing chart parameters
+      - lab
+      - lifecycle management with helm
+      - lab
+
+  - date: "2026-03-18"
+    title: Kustomize Basics
+    duration: 20분 29초
+    detail:
+      - kustomize problem statement and ideology
+      - kustomize vs helm
+      - installation setup
+      - kustomization.yaml
+      - kustomize output
+      - kustomize apiversion & kind
+
+  - date: "2026-03-19"
+    title: Kustomize Basics
+    duration: 15분 40초
+    detail:
+      - managing directories
+      - managing directories demo
+      - lab
+
+  - date: "2026-03-20"
+    title: Kustomize Basics
+    duration: 17분 30초
+    detail:
+      - common transformers
+      - image transformers
+      - transformers demo
+      - lab
+
+  - date: "2026-03-21"
+    title: Kustomize Basics
+    duration: 22분 7초
+    detail:
+      - patches intro
+      - different types of patches
+      - patches dictionary
+      - patches limits
+      - lab
+
+  - date: "2026-03-22"
+    title: Kustomize Basics
+    duration: 14분 27초
+    detail:
+      - overlays
+      - lab
+      - components
+      - lab
+
+  - date: "2026-03-23"
+    title: Troubleshooting
+    duration: 31분 23초
+    detail:
+      - intro
+      - application failure
+      - lab
+      - lab solution
+
+  - date: "2026-03-24"
+    title: Troubleshooting
+    duration: 17분 15초
+    detail:
+      - control plane failure
+      - lab
+      - lab solution
+
+  - date: "2026-03-25"
+    title: Troubleshooting
+    duration: 15분 55초
+    detail:
+      - worker node failure
+      - lab
+      - lab solution
+      - network troubleshooting
+      - practice test
+
+  - date: "2026-03-26"
+    title: Other Topics
+    duration: 12분 11초
+    detail:
+      -
+
+  - date: "2026-03-27"
+    title: Bonus Section, Lightning Labs
+    duration: 13분 47초
+    detail:
+      -
+
+  - date: "2026-03-28"
+    title: Mock Exams
+    duration: 32분 45초
+    detail:
+      - exam 1
+
+  - date: "2026-03-29"
+    title: Mock Exams
+    duration: 43분 56초
+    detail:
+      - exam 2
+
+  - date: "2026-03-30"
+    title: Mock Exams
+    duration: 48분 7초
+    detail:
+      - exam 3

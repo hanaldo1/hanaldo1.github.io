@@ -6,6 +6,8 @@
 @import "codeblock";
 @import "table";
 @import "slide";
+@import "plan_calendar";
+@import "fullcalendar";
 
 body {
   color: #323232;
@@ -83,4 +85,59 @@ blockquote {
   color: #444;
   text-align: left;
   margin-bottom: 1rem;
+}
+
+// certification plan
+.plan-list{
+  list-style: disc;
+
+  li {
+    display: list-item;
+    margin: 10px 0;
+  }
+
+  li::marker {
+    color: #111827;   // muted gray
+  }
+
+  .plan-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .plan-text{
+    flex: 1;                   // 공간 우선
+  }
+
+  /* 배지 */
+  .badge-link{
+    flex-shrink: 0;
+
+    padding: 4px 10px;
+    border-radius: 999px;
+
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+    text-decoration: none;
+
+    white-space: nowrap;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+  }
+
+  .badge-link.active{
+    background: #111827;
+    color: #fff;
+    border-color: #111827;
+  }
+
+  .badge-link:hover{
+    background: #f3f4f6;
+    border-color: #d1d5db;
+    transform: translateY(-1px);
+  }
 }

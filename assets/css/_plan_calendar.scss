@@ -1,0 +1,251 @@
+/* =========================
+   계획 캘린더 커스텀 스타일
+   ========================= */
+
+.plan-calendar {
+
+  /*
+   * 인포, 프로그레스 섹션
+   */
+  
+  /* 상단 2열 래퍼 */
+  .info-status {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;   // status가 조금 더 넓게 (원하면 1fr 1fr)
+    gap: 24px;
+    align-items: stretch;              // info, status 두 카드 높이 맞춤
+    margin-bottom: 24px;
+  }
+
+  /* 공통 카드 느낌 */
+  .summary-section,
+  .info-section,
+  .progress-section{
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+
+    display: flex;                     // 내부 세로 정렬
+    flex-direction: column;
+  }
+
+  /* 요약 섹션 */
+  .summary-section{
+    grid-column: 1 / -1; // 전체 폭
+  }
+
+  #summaryBody{
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  .summary-body {
+    padding-left: 18px;
+  }
+
+  /* Info 섹션 */
+  .info-section .dday{
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .info-section #startDate{
+    margin-top: 10px;
+    color: #6b7280;
+  }
+
+  .info-section #endDate{
+    margin-top: 6px;
+    color: #111827;
+  }
+
+  /* Progress 섹션 */
+  #progressText{
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 10px;
+  }
+
+  .progress-bar {
+    // width: 100%;
+    height: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 999px;
+    background: #f3f4f6;
+    overflow: hidden;
+    margin: 0.5rem 0;
+  }
+
+  #progressFill {
+    height: 100%;
+    width: 0%;
+    background: #374151;
+    border-radius: 999px;
+    transition: width 250ms ease;
+  }
+
+  /* 그리드 섹션 */
+  .gh-heatmap{
+    margin-top: 6px;
+    flex: 1;                           // 남는 높이 채움
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .gh-grid {
+    width: 100%;
+
+    display: grid;
+
+    /* 7행(요일) 고정 */
+    grid-template-rows: repeat(var(--gh-columns), 12px);
+
+    /* 열(주)은 자동으로 확장 */
+    grid-auto-columns: 12px;
+
+     /* 열 방향으로 채움 */
+    grid-auto-flow: column;
+
+    gap: 3px;
+  }
+
+  /* 잔디 박스 */
+  .gh-box {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    display: inline-block;
+    background: #e5e7eb;  // 기본(0단계)
+    border: 1px solid #e5e7eb;
+  }
+
+  /* 레벨(진하기) */
+  .gh-box.level-0 { background: #e5e7eb; }
+  .gh-box.level-1 { background: #9ca3af; }
+  .gh-box.level-2 { background: #111827; border-color: #111827; }
+
+  /* 오늘 테두리 */
+  .gh-box.cell-today {
+    outline: 2px solid rgba(0,0,0,0.18);
+    outline-offset: 1px;
+  }
+
+  /* 시작일 전, 종료일 이후 셀 흐리게 */
+  .gh-box.cell-before-start {
+    background: rgba(0,0,0,0); /* level-0 기본 */
+  }
+  .gh-box.cell-after-end {
+    background: rgba(0,0,0,0); /* level-0 기본 */
+  }
+
+  /* hover */
+  .gh-box:hover {
+    border-color: rgba(0,0,0,0.2);
+  }
+
+
+  /*
+   * 캘린더 섹션
+   */
+
+  /* 1) 완료 이벤트: 사라지는 느낌(흐림 + 작게 + 취소선) */
+  .fc .is-done {
+    opacity: 0.35;
+    text-decoration: line-through;
+  }
+
+  // 클릭 영역까지 포함해서 사라지는 느낌
+  .fc .is-done.fc-daygrid-event {
+    transform: scale(0.98);
+  }
+
+  /* 2) 오늘 날짜 셀 강조 */
+  .fc .is-today {
+    outline: 2px solid rgba(0,0,0,0.2);
+  }
+
+  .fc .is-today {
+    outline: 2px solid rgba(0,0,0,0.2);
+  }
+
+  .fc .fc-event-title {
+    font-size: 10px;
+  }
+
+  /* 모달 */
+  .modal.hidden { display: none; }
+  .modal-empty.hidden { display: none; }
+
+  .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+  }
+
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+  }
+
+  .modal-box {
+    position: relative;
+    max-width: 520px;
+    margin: 10vh auto;
+    background: #fff;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
+  .modal-box h3 {
+    margin-top: 0;
+  }
+
+  .modal-box pre {
+    white-space: pre-wrap;
+    line-height: 1.5;
+    font-family: inherit;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 1.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .modal-meta { color: rgba(0,0,0,0.6); margin-top: -0.25rem; }
+
+  .checklist {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0 0;
+  }
+
+  .checklist li {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    align-items: flex-start;
+  }
+
+  .checklist li::before {
+    content: "☐";
+    line-height: 1.2;
+    opacity: 0.8;
+  }
+
+  /* (선택) 완료된 이벤트면 체크 표시로 */
+  .modal.is-done .checklist li::before {
+    content: "☑";
+  }
+
+  .modal-empty { color: rgba(0,0,0,0.6); margin-top: 1rem; }
+}

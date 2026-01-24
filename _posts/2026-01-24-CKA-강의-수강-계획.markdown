@@ -1,0 +1,6 @@
+---
+layout: plan_calendar
+title: CKA 강의 수강 계획
+categories: [plan]
+plan_data: cka-course
+---

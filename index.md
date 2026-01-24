@@ -123,12 +123,38 @@ function moveSlide(step) {
 
 ## 🪪 자격증 취득 목표
 
-|  기간  |  자격증   | 상태 |
-|-----|-----|-----|-----|
-|  ~ 25년도 3분기  |  JLPT N2  | 취득 완료 (2025.08.12) | 
-|  ~ 25년도 3분기  |  Terraform Associate  | 취득 완료 (2025.09.23) |
-|  ~ 26년도 2분기  |  Certified Kubernetes Administrator (CKA) | 시험 결제 완료 (2026.01.19) |
-|  ~ 26년도       |  JLPT N1  |  시험 접수 대기 중  |
+|  기간  |  자격증   | 상태 | 비고 |
+|-----|-----|-----|-----|-----|
+|  ~ 25년도 3분기  |  JLPT N2  | ◼️◼️◼️◼️ | 취득 완료 (25.08.12) | 
+|  ~ 25년도 3분기  |  Terraform Associate  | ◼️◼️◼️◼️ | 취득 완료 (25.09.23) |
+|  ~ 26년도 2분기  |  Certified Kubernetes Administrator (CKA) | ◼️▫️▫️▫️ | 시험 결제 완료 (26.01.19 ~ 27.01.19) |
+|  ~ 26년도       |  JLPT N1  | ▫️▫️▫️▫️ | 시험 접수 예정 (26.04.01 오픈 예상)  |
+
+<br/>
+
+### CKA 취득 상세 계획
+<ul class="plan-list">
+  <li>
+    <div class="plan-row">
+      <span class="plan-text">26.01.22 ~ 26.03.29 Udemy CKA 강의 수강</span>
+      <a class="badge-link active" href="/plan/CKA-강의-수강-계획">↗ 강의 수강 계획 보기</a>
+    </div>
+  </li>
+
+  <li>
+    <div class="plan-row">
+      <span class="plan-text">26.04 강의 내용 복습 (이해가 덜 된 부분)</span>
+      <a class="badge-link" href="">(TODO)</a>
+    </div>
+  </li>
+
+  <li>
+    <div class="plan-row">
+      <span class="plan-text">26.05 ~ 26.06 모의 실습 및 시험 응시 (1차)</span>
+      <a class="badge-link" href="">(TODO)</a>
+    </div>
+  </li>
+</ul>
 
 <br/>
 
@@ -139,8 +165,9 @@ function moveSlide(step) {
 ## 📬 Contact
 <ul>
   <li><i class="fas fa-envelope"></i> <a href="mailto:jiwoo@hanaldo.dev">jiwoo@hanaldo.dev</a></li>
-  <li><i class="fab fa-github"></i> <a href="https://github.com/hanaldo1" target="_blank">github.com/hanaldo1</a></li>
-  <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/hanaldo" target="_blank">linkedin.com/in/hanaldo</a></li>
+  <li><i class="fab fa-github"></i> <a href="https://github.com/hanaldo1" target="_blank">Github</a></li>
+  <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/hanaldo" target="_blank">링크드인</a></li>
+  <li><i class="fa-solid fa-file"></i> <a href="https://www.rallit.com/hub/resumes/156803" target="_blank">이력서</a></li>
 </ul>
 
 <script src="{{ '/assets/js/zoom.js' | relative_url }}"></script>

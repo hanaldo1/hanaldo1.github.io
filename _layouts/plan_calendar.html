@@ -1,0 +1,309 @@
+---
+layout: default
+---
+
+{% assign plan = site.data.plan[page.plan_data] %}
+
+<div class="plan-calendar">
+  <div class="info-status">
+    <section class="summary-section">
+      <div id="summaryBody"></div>
+    </section>
+
+    <section class="info-section">
+      <div id="dday" class="dday"></div>
+      <br>
+      <div id="startDate"></div>
+      <strong><div id="endDate"></div></strong>
+    </section>
+
+    <section class="progress-section">
+      <div id="progressText"></div>
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+
+      <div class="gh-heatmap">
+        <div id="ghGrid" class="gh-grid"></div>
+      </div>
+    </section>
+  </div>
+
+  <div id="calendar"></div>
+
+  <div id="eventModal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+
+      <strong><h3 id="modalTitle"></h3></strong>
+      <p id="modalDuration"></p>
+
+      <ul id="modalChecklist" class="checklist"></ul>
+      <p id="modalEmpty" class="modal-empty hidden">상세 체크리스트가 없습니다.</p>
+    </div>
+  </div>
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+
+<script>
+  const days = {{ plan.days | jsonify }};
+  const start_date = {{ plan.start_date | jsonify }};
+  const summaries = {{ plan.summaries | jsonify }};
+
+  const start = new Date(start_date + "T00:00:00+09:00");
+  const end = new Date(start);
+  end.setDate(start.getDate() + (days -1)); // 시작일 포함
+
+  // Jekyll data -> JS events
+  const plan_items = [
+    {% for item in plan.items %}
+    { 
+      title: {{ item.title | jsonify }},
+      start: {{ item.date | jsonify }} + "T00:00:00+09:00",
+      allDay: true,
+      extendedProps: {
+        date: {{ item.date | default: "" | jsonify }},
+        duration: {{ item.duration | default: "" | jsonify }},
+        detail: {{ item.detail | default: empty | jsonify }},
+        status: {{ item.status | default: "todo" | jsonify }}
+      },
+    },
+    {% endfor %}
+  ];
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const el = document.getElementById('calendar');
+
+    const calendar = new FullCalendar.Calendar(el, {
+      initialView: 'dayGridMonth',
+      locale: 'ko',
+      height: 'auto',
+      events: plan_items,
+
+      eventClassNames: function(arg) {
+        const classes = [
+          "rounded-lg",
+          "px-2",
+          "py-0.5",
+          "text-xs",
+          "cursor-pointer",
+          "transition"
+        ];
+
+        if (arg.event.extendedProps.status === "done") {
+          classes.push("is-done", "bg-gray-100", "text-gray-400", "line-through");
+        } else if (arg.event.extendedProps.status === "todo") {
+          classes.push("is-todo", "bg-gray-200", "hover:bg-gray-300");
+        }
+
+        const today = new Date().toISOString().slice(0,10);
+        if (arg.event.startStr === today) {
+          classes.push("is-today");
+        }
+
+        return classes;
+      },
+
+      eventClick: function(info) {
+        info.jsEvent.preventDefault();
+
+        // 모달 렌더링
+        openModalForEvent(info.event);
+      },
+
+      // 1) 완료 이벤트 “사라지는 느낌” 추가 처리(원하면 더 강하게)
+      eventDidMount: (info) => {
+        const status = info.event.extendedProps.status;
+        if (status === "done") {
+          info.el.setAttribute("title", "완료");
+        }
+      },
+    });
+
+    // 1) 요약 표시
+    renderSummary();
+
+    // 2) 목표, 디데이 계산 & 표시
+    renderInfo();
+
+    // 3) 진행률 표시
+    renderProgress();
+
+    // 4) 캘린더
+    calendar.render();
+
+    // 모달 닫기 처리
+    document.querySelector(".modal-close").onclick = closeModal;
+    document.querySelector(".modal-backdrop").onclick = closeModal;
+  });
+
+  function toYMD(dateObj) {
+    // 로컬 기준 yyyy-mm-dd
+    const y = dateObj.getFullYear();
+    const m = String(dateObj.getMonth() + 1).padStart(2, "0");
+    const d = String(dateObj.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+  }
+
+  function getProcessPct() {
+    const total = plan_items.length;
+    const done = plan_items.filter(item => item.extendedProps.status === "done").length;
+    const pct = total ? Math.round((done / total) * 100) : 0;
+
+    return [total, done, pct];
+  }
+
+  function getToday() {
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    return today;
+  }
+  
+  function renderSummary() {
+    const summaryBody = document.getElementById('summaryBody');
+
+    for (let i = 0; i < summaries.length; i++) {
+      let summary = document.createElement("p");
+      summary.textContent = `▪️ ${summaries[i].text}`;
+
+      if (Object.hasOwn(summaries[i], 'link')) {
+        summary = document.createElement("a");
+        summary.href = summaries[i].link;
+        summary.textContent = `▪️ ${summaries[i].text}`;
+      }
+
+      summaryBody.appendChild(summary);
+    }
+  }
+
+  function renderInfo() {
+    document.getElementById('startDate').textContent = `▪️ 시작일: ${toYMD(start)}`;
+    document.getElementById('endDate').textContent = `▪️ 목표일: ${toYMD(end)} (${days}일)`;
+
+    // 디데이
+    // 한국 기준으로 날짜 계산
+    const today = getToday();
+
+    const diffMs = end - today;
+    const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+
+    const dday = document.getElementById("dday");
+    if (!dday) return;
+
+    if (diffDays > 0) {
+      dday.textContent = `🎯 목표까지 D-${diffDays}`;
+    } else if (diffDays === 0) {
+      dday.textContent = `🔥 오늘이 목표일!`;
+    } else {
+      dday.textContent = `✅ 목표 달성 (D+${Math.abs(diffDays)})`;
+    }
+  }
+
+  function renderProgress() {
+    // 진행률
+    const [total, done, pct] = getProcessPct();
+
+    document.getElementById("progressText").textContent = `📍 전체 진행률: ${done} / ${total} (${pct}%)`;
+    document.getElementById("progressFill").style.width = `${pct}%`;
+
+    // 그리드
+    // date -> status map
+    const map = new Map(plan_items.map(item => [item.extendedProps.date, item.extendedProps.status]));
+
+    const today = getToday();
+
+    const grid_start = new Date(start);
+
+    // ==> 주시작일부터 그리드 생성하려면 아래 코드 주석 해제
+    // const day = grid_start.getDay(); // 0=일, 1=월, ..., 6=토
+    // const diff = day % 7 // 주시작 날짜 (일요일)부터 계산하기 위함
+    // grid_start.setDate(grid_start.getDate() - diff);
+
+    // const grid_days = days + diff // 주시작 날짜부터 계산하기 위해 추가된 값 같이 고려
+    // const WEEK_DAYS = grid_days % 7 !== 0 ? Math.floor(grid_days / 7 + 1) * 7 : grid_days;
+
+    const GRID_COLUMND = 3
+    const WEEK_DAYS = days % GRID_COLUMND !== 0 ? Math.floor(days / GRID_COLUMND + 1) * GRID_COLUMND : days;
+
+    const gridEl = document.getElementById("ghGrid");
+    if (!gridEl) return;
+
+    // 열 생성
+    gridEl.style.setProperty("--gh-columns", GRID_COLUMND);
+
+    const cells = [];
+    for (let i = 0; i < WEEK_DAYS; i++) {
+      const cell_date = new Date(grid_start);
+      cell_date.setDate(grid_start.getDate() + i);
+
+      const ymd = toYMD(cell_date);
+      const status = map.get(ymd);
+
+      // 레벨 매핑
+      // level-0: 아무 것도 없음
+      // level-1: todo(계획만 있음)
+      // level-2: done(완료)
+      const level = status === "done" ? 2 : status === "todo" ? 1 : 0;
+
+      const cell = document.createElement("a");
+      cell.href = "#"; // 필요하면 해당 날짜 상세로 링크 가능
+      cell.className = `gh-box level-${level}`;
+      cell.setAttribute("title", tooltipText(ymd, status));
+      cell.addEventListener("click", (e) => e.preventDefault());
+
+      // 오늘 표시(선택)
+      if (toYMD(today) === ymd) cell.classList.add("cell-today");
+
+      // 시작일, 종료일 범위에서 벗어나는 날짜는 빈 그리드로 보이게
+      if (cell_date < start) cell.classList.add("cell-before-start");
+      if (cell_date > end) cell.classList.add("cell-after-end");
+
+      cells.push(cell);
+    }
+
+    cells.forEach(c => gridEl.appendChild(c));
+  }
+
+  function tooltipText(date, status) {
+    if (status === "done") return `${date} · 완료`;
+    if (status === "todo") return `${date} · TODO`;
+    return `${date} · 계획 없음`;
+  }
+
+  function closeModal() {
+    document.getElementById("eventModal").classList.add("hidden");
+  }
+
+  function openModalForEvent(event) {
+    const modal = document.getElementById("eventModal");
+    const listEl = document.getElementById("modalChecklist");
+    const emptyEl = document.getElementById("modalEmpty");
+
+    document.getElementById("modalTitle").textContent = event.title;
+    document.getElementById("modalDuration").textContent = "🕑 소요시간: "+ event.extendedProps.duration;
+
+    // status에 따라 모달 클래스 토글
+    modal.classList.toggle("is-done", event.extendedProps.status === "done");
+
+    // 리스트 초기화
+    listEl.innerHTML = "";
+
+    const detail = event.extendedProps.detail;
+
+    // detail이 배열이면 렌더링
+    if (Array.isArray(detail) && detail.length > 0) {
+      detail.forEach(text => {
+        const li = document.createElement("li");
+        li.textContent = text;
+        listEl.appendChild(li);
+      });
+    } else {
+      emptyEl.classList.remove("hidden");
+    }
+
+    modal.classList.remove("hidden");
+  }
+</script>
