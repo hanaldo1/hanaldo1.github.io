@@ -22,7 +22,8 @@ items:
     detail:
       - etcd for beginner
       - etcd in kubernetes
-      - etcd dcommands
+      - etcd commands
+    status: done
 
   - date: "2026-01-25"
     title: Core Concepts
@@ -33,6 +34,7 @@ items:
       - kube scheduler
       - kubelet
       - kube proxy
+    status: done
 
   - date: "2026-01-26"
     title: Core Concepts
