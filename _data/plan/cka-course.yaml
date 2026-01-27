@@ -43,6 +43,7 @@ items:
       - pods
       - pods with yaml
       - demo - pods with yaml
+    status: done
 
   - date: "2026-01-27"
     title: Core Concepts
@@ -52,6 +53,7 @@ items:
       - demo accessing labs
       - lab - pods
       - lab solution - pods
+    status: done
 
   - date: "2026-01-28"
     title: Core Concepts
