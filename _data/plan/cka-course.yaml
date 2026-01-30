@@ -73,6 +73,7 @@ items:
       - course setup - accessing th labs
       - lab - deployments
       - lab solution
+    status: done
 
   - date: "2026-01-30"
     title: Core Concepts
@@ -83,6 +84,7 @@ items:
       - services loadbalancer
       - lab services
       - lab solution
+    status: done
 
   - date: "2026-01-31"
     title: Core Concepts
