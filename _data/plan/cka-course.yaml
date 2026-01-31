@@ -93,6 +93,7 @@ items:
       - namespaces
       - lab - namespaces
       - lab solution
+    status: done
 
   - date: "2026-02-01"
     title: Core Concepts
