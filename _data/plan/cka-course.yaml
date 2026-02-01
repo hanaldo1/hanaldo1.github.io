@@ -107,6 +107,7 @@ items:
       - kubectl apply command
       - quick reminder
       - reference notes
+    status: done
 
   - date: "2026-02-02"
     title: Scheduling
