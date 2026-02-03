@@ -120,6 +120,7 @@ items:
       - labels and selector
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-03"
     title: Scheduling
@@ -128,6 +129,7 @@ items:
       - taint and tolerations
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-04"
     title: Scheduling
