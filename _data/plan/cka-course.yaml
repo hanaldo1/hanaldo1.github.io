@@ -140,6 +140,7 @@ items:
       - lab
       - lab solution
       - taints and tolerations vs node affitnity
+    status: done
 
   - date: "2026-02-05"
     title: Scheduling
@@ -149,6 +150,7 @@ items:
       - a quick note on editing pod and deployments
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-06"
     title: Scheduling
