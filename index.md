@@ -166,7 +166,7 @@ function moveSlide(step) {
 <ul>
   <li><i class="fas fa-envelope"></i> <a href="mailto:jiwoo@hanaldo.dev">jiwoo@hanaldo.dev</a></li>
   <li><i class="fab fa-github"></i> <a href="https://github.com/hanaldo1" target="_blank">Github</a></li>
-  <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/hanaldo" target="_blank">링크드인</a></li>
+  <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/hanjiu" target="_blank">링크드인</a></li>
   <li><i class="fa-solid fa-file"></i> <a href="https://www.rallit.com/hub/resumes/156803" target="_blank">이력서</a></li>
 </ul>
 
