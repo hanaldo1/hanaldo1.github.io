@@ -159,6 +159,7 @@ items:
       - daemonsets
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-07"
     title: Scheduling
@@ -167,6 +168,7 @@ items:
       - static pod
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-08"
     title: Scheduling
