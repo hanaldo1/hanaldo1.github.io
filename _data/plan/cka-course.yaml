@@ -181,6 +181,7 @@ items:
       - lab solution
       - configuring scheduler profiles
       - reference
+    status: done
 
   - date: "2026-02-09"
     title: Scheduling
@@ -194,10 +195,15 @@ items:
       - lab solution
 
   - date: "2026-02-10"
-    title: Scheduling
+    title: Logging & Monitoring
     duration: 14분 9초
     detail:
-      - logging & monitoring (강의 수 적어서 해당 챕터는 한번에)
+      - (강의 수 적어서 해당 챕터는 한번에)
+      - section introduction
+      - monitor cluster components
+      - lab & lab solution
+      - managing application logs
+      - lab & lab solution
 
   - date: "2026-02-11"
     title: Application Lifecycle Management
