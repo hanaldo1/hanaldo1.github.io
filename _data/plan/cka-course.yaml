@@ -193,6 +193,7 @@ items:
       - validating and mutating admission controller
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-10"
     title: Logging & Monitoring
