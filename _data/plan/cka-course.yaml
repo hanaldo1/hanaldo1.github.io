@@ -205,6 +205,7 @@ items:
       - lab & lab solution
       - managing application logs
       - lab & lab solution
+    status: done
 
   - date: "2026-02-11"
     title: Application Lifecycle Management
