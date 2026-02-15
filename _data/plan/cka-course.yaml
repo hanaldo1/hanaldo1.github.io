@@ -215,6 +215,7 @@ items:
       - rolling update and rollback
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-12"
     title: Application Lifecycle Management
@@ -225,6 +226,7 @@ items:
       - commands and arguments in kubernetes
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-13"
     title: Application Lifecycle Management
