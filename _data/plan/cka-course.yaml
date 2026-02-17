@@ -236,6 +236,7 @@ items:
       - configure configmap in application
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-14"
     title: Application Lifecycle Management
@@ -248,6 +249,7 @@ items:
       - demo encrypting secret data at rest
       - a note on secrets
       - scale application?
+    status: done
 
   - date: "2026-02-15"
     title: Application Lifecycle Management
