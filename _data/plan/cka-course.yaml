@@ -262,6 +262,7 @@ items:
       - lab
       - lab solution
       - self healing application
+    status: done
 
   - date: "2026-02-16"
     title: Application Lifecycle Management
@@ -275,6 +276,7 @@ items:
       - vpa
       - lab - install vpa
       - lab - modifying cpu resources in vpa
+    status: done
 
   - date: "2026-02-17"
     title: Cluster Maintenance
