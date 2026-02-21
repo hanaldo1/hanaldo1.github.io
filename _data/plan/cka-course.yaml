@@ -288,6 +288,7 @@ items:
       - lab solution
       - kubernetes releases
       - reference
+    status: done
 
   - date: "2026-02-18"
     title: Cluster Maintenance
@@ -297,6 +298,7 @@ items:
       - demo
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-19"
     title: Cluster Maintenance
@@ -307,6 +309,7 @@ items:
       - lab
       - certification exam tips
       - reference
+    status: done
 
   - date: "2026-02-20"
     title: Security
