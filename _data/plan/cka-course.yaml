@@ -318,7 +318,7 @@ items:
       - introduction
       - kubernetes security primitives
       - authentication
-      - article on setting up basic authentication
+    status: done
 
   - date: "2026-02-21"
     title: Security
