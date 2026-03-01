@@ -328,6 +328,7 @@ items:
       - tls basics
       - tls in kubernetes
       - tls in kubernetes - certificate creation
+    status: done
 
   - date: "2026-02-22"
     title: Security
