@@ -337,6 +337,7 @@ items:
       - view certificate details
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-23"
     title: Security
@@ -345,6 +346,7 @@ items:
       - certificates api
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-24"
     title: Security
