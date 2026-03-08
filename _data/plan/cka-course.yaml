@@ -356,6 +356,7 @@ items:
       - lab
       - lab solution
       - (persistent key/value store)
+    status: done
 
   - date: "2026-02-25"
     title: Security
@@ -366,6 +367,7 @@ items:
       - rbac
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-26"
     title: Security
@@ -377,6 +379,7 @@ items:
       - service accounts
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-27"
     title: Security
