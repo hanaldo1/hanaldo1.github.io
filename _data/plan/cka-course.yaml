@@ -392,6 +392,7 @@ items:
       - security contexts
       - lab
       - lab solution
+    status: done
 
   - date: "2026-02-28"
     title: Security
