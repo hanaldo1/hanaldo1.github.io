@@ -403,6 +403,7 @@ items:
       - lab
       - lab solution
       - (kubectx and kubens - command line utilies)
+    status: done
 
   - date: "2026-03-01"
     title: Security
